@@ -6,7 +6,8 @@ var focus_follows_mouse = {
 	
 	element_hovered : function(event)
 	{
-		if (focus_follows_mouse.page_content_selected()) {
+		if ( ! focus_follows_mouse.check_for_active_element()
+		&& focus_follows_mouse.page_content_selected()) {
 			return;
 		}
 		if (event.buttons) {
@@ -15,6 +16,16 @@ var focus_follows_mouse = {
 		if ( ! focus_follows_mouse.page_scrolled()
 		&& focus_follows_mouse.mouse_moved(event)) {
 			focus_follows_mouse.focus_hovered_element_if_tag_is_specified(event);
+		}
+	},
+	
+	check_for_active_element : function()
+	{
+		var active_element = document.activeElement;
+		if ( active_element.localName !== 'body' ) {
+			return true;
+		} else {
+			return false;
 		}
 	},
 	
