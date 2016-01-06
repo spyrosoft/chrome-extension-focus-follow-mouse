@@ -3,7 +3,7 @@
 	
 	"description": "A productivity tool which automatically focuses form elements and links.",
 	
-	"version": "1.0",
+	"version": "1.1",
 	
 	"icons": {
 		"64" : "focus-follows-mouse-64.png",
